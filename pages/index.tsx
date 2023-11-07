@@ -4,7 +4,7 @@ import { DrupalNode } from "next-drupal";
 
 import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
-import { NodeArticleTeaser } from "components/node--article--teaser";
+import { NodeBlogTeaser } from "components/node--blog--teaser";
 
 interface IndexPageProps {
   nodes: DrupalNode[];
@@ -14,18 +14,18 @@ export default function IndexPage({ nodes }: IndexPageProps) {
   return (
     <Layout>
       <Head>
-        <title>Next.js for Drupal</title>
+        <title>Picobello B.V.</title>
         <meta
           name="description"
-          content="A Next.js site powered by a Drupal backend."
+          content="Trip administration system for Picobello B.V."
         />
       </Head>
       <div>
-        <h1 className="mb-10 text-6xl font-black">Latest Articles.</h1>
+        <h1 className="mb-10 text-6xl font-black">Latest blog posts.</h1>
         {nodes?.length ? (
           nodes.map((node) => (
             <div key={node.id}>
-              <NodeArticleTeaser node={node} />
+              <NodeBlogTeaser node={node} />
               <hr className="my-20" />
             </div>
           ))
@@ -41,13 +41,13 @@ export async function getStaticProps(
   context
 ): Promise<GetStaticPropsResult<IndexPageProps>> {
   const nodes = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "node--article",
+    "node--blog",
     context,
     {
       params: {
         "filter[status]": 1,
-        "fields[node--article]": "title,path,field_image,uid,created",
-        include: "field_image,uid",
+        "fields[node--blog]": "title,path,uid,created",
+        include: "uid",
         sort: "-created",
       },
     }
