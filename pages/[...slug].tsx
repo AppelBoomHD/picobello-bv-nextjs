@@ -7,11 +7,17 @@ import { NodeArticle } from "components/node--article";
 import { NodeBasicPage } from "components/node--basic-page";
 import { Layout } from "components/layout";
 import { NodeBlog } from "components/node--blog";
+import { Trip } from "components/trip";
 
-const RESOURCE_TYPES = ["node--page", "node--article"];
+const RESOURCE_TYPES = [
+  "node--page",
+  "node--article",
+  "node--blog",
+  "trip_admin_trip--trip_admin_trip",
+];
 
 interface NodePageProps {
-  resource: DrupalNode;
+  resource: any;
 }
 
 export default function NodePage({ resource }: NodePageProps) {
@@ -26,6 +32,9 @@ export default function NodePage({ resource }: NodePageProps) {
       {resource.type === "node--page" && <NodeBasicPage node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
       {resource.type === "node--blog" && <NodeBlog node={resource} />}
+      {resource.type === "trip_admin_trip--trip_admin_trip" && (
+        <Trip trip={resource} />
+      )}
     </Layout>
   );
 }
@@ -40,7 +49,9 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
 export async function getStaticProps(
   context
 ): Promise<GetStaticPropsResult<NodePageProps>> {
-  const path = await drupal.translatePathFromContext(context);
+  const path = await drupal.translatePathFromContext(context, {
+    withAuth: true,
+  });
 
   if (!path) {
     return {
@@ -63,11 +74,18 @@ export async function getStaticProps(
     };
   }
 
+  if (type === "trip_admin_trip--trip_admin_trip") {
+    params = {
+      include: "stops",
+    };
+  }
+
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,
     context,
     {
       params,
+      withAuth: true,
     }
   );
 

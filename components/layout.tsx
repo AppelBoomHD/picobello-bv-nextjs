@@ -12,6 +12,9 @@ export function Layout({ children }) {
             <Link href="/" className="text-2xl font-semibold no-underline">
               Picobello B.V.
             </Link>
+            <Link href="/trips" className="text-2xl font-semibold no-underline">
+              Trips
+            </Link>
           </div>
         </header>
         <main className="container py-10 mx-auto">{children}</main>
