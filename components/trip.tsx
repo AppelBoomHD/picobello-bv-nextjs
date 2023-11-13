@@ -1,7 +1,6 @@
 import { DrupalTrip } from "types/drupal";
 
 import { formatDate } from "lib/utils";
-import Image from "next/image";
 
 import Checkmark from "../public/icons/checkmark.svg";
 import Clock from "../public/icons/clock.svg";
