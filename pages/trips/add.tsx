@@ -32,14 +32,32 @@ export default function AddTrip({ ...props }: AddTripProps) {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-1/2">
-        <h2 className="font-bold">Description</h2>
-        <input {...register("description")} />
-        <h2 className="font-bold">Start time</h2>
-        <input type="datetime-local" {...register("start")} />
-        <h2 className="font-bold">Stops</h2>
-        <input {...register("stops")} />
-        <button type="submit">Submit</button>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col w-1/2 gap-2"
+      >
+        <h2 className="font-bold text-xl mt-4">Description</h2>
+        <input
+          className="border-2 p-0.5 rounded-md border-blue-500"
+          {...register("description")}
+        />
+        <h2 className="font-bold text-xl mt-4">Start time</h2>
+        <input
+          className="border-2 p-0.5 rounded-md border-blue-500"
+          type="datetime-local"
+          {...register("start")}
+        />
+        <h2 className="font-bold text-xl mt-4">Stops</h2>
+        <input
+          className="border-2 p-0.5 rounded-md border-blue-500"
+          {...register("stops")}
+        />
+        <button
+          className="mt-4 mx-auto bg-blue-500 rounded-xl py-3 px-4 font-bold text-white"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </Layout>
   );
