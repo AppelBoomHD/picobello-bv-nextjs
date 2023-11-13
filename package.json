@@ -1,6 +1,6 @@
 {
-  "name": "basic-starter",
-  "version": "1.7.2",
+  "name": "picobello-bv",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {
