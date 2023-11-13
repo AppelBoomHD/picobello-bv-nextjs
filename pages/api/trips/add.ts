@@ -31,9 +31,9 @@ export default async function handler(
         },
         relationships: {
           stops: {
-            data: body.stops.map((id) => ({
+            data: body.stops.map((stop) => ({
               type: "trip_admin_stop--trip_admin_stop",
-              id,
+              id: stop.value,
             })),
           },
         },
