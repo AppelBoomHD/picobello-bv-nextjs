@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
+    "react-select": "^5.8.0",
     "sharp": "^0.31.2"
   },
   "devDependencies": {
