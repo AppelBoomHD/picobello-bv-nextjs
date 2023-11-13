@@ -4,6 +4,7 @@ import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
 import { TripTeaser } from "components/trip--teaser";
 import { DrupalTrip } from "types/drupal";
+import Link from "next/link";
 
 interface TripsPageProps {
   trips: DrupalTrip[];
@@ -13,7 +14,15 @@ export default function IndexPage({ trips }: TripsPageProps) {
   return (
     <Layout>
       <div>
-        <h1 className="mb-10 text-6xl font-black">Latest trips.</h1>
+        <div className="flex justify-between items-center mb-10">
+          <h1 className="text-6xl font-black">Latest trips.</h1>
+          <Link
+            className="bg-blue-500 rounded-xl py-3 px-4 font-bold text-white"
+            href={"/trips/add"}
+          >
+            New Trip +
+          </Link>
+        </div>
         {trips?.length ? (
           trips.map((trip) => (
             <div key={trip.id}>
