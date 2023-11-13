@@ -11,9 +11,12 @@ export function TripTeaser({ trip, ...props }: TripTeaserProps) {
   return (
     <article {...props}>
       <Link href={trip.path.alias} className="no-underline hover:text-blue-600">
-        <h2 className="mb-4 text-4xl font-bold">
-          Trip {trip.drupal_internal__id}
-        </h2>
+        <div className="flex mb-4 text-4xl font-bold space-x-2">
+          <h2>Trip {trip.drupal_internal__id}</h2>
+          <div title={trip.completed ? "Completed" : "Not completed"}>
+            {trip.completed ? "✅" : "🚙"}
+          </div>
+        </div>
         <div
           dangerouslySetInnerHTML={{ __html: trip.description?.processed }}
         />
