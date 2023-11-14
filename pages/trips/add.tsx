@@ -37,18 +37,20 @@ export default function AddTrip({ stops, ...props }: AddTripProps) {
 
   return (
     <Layout>
+      <h1 className="text-6xl font-black mb-10">New trip.</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-1/2 gap-2"
       >
         <h2 className="font-bold text-xl mt-4">Description</h2>
         <input
-          className="border-2 p-0.5 rounded-md hover:border-blue-500 outline-blue-500"
+          placeholder="Description"
+          className="border-2 py-0.5 px-2 rounded-md hover:border-blue-500 outline-blue-500"
           {...register("description")}
         />
         <h2 className="font-bold text-xl mt-4">Start time</h2>
         <input
-          className="border-2 p-0.5 rounded-md hover:border-blue-500 outline-blue-500"
+          className="border-2 py-0.5 px-2 rounded-md hover:border-blue-500 outline-blue-500"
           type="datetime-local"
           {...register("start")}
         />
