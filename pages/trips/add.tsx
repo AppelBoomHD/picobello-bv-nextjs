@@ -70,7 +70,7 @@ export default function AddTrip({ stops, ...props }: AddTripProps) {
           )}
         />
         <button
-          className="mt-4 mx-auto bg-blue-500 rounded-xl py-3 px-4 font-bold text-white"
+          className="mt-4 mx-auto bg-blue-600 hover:bg-blue-500 rounded-xl py-3 px-4 font-bold text-white border border-black"
           type="submit"
         >
           Submit

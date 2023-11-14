@@ -17,7 +17,7 @@ export default function IndexPage({ trips }: TripsPageProps) {
         <div className="flex justify-between items-center mb-10">
           <h1 className="text-6xl font-black">Latest trips.</h1>
           <Link
-            className="bg-blue-500 rounded-xl py-3 px-4 font-bold text-white"
+            className="bg-blue-600 hover:bg-blue-500 rounded-xl py-3 px-4 font-bold text-white border border-black"
             href={"/trips/add"}
           >
             New Trip +
