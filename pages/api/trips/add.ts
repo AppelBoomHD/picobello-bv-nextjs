@@ -7,16 +7,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const body = JSON.parse(req.body);
-
-  console.log(
-    body.stops.map((id) => ({
-      data: {
-        type: "trip_admin_stop--trip_admin_stop",
-        id,
-      },
-    }))
-  );
-
   const trip = await drupal.createResource<DrupalTrip>(
     "trip_admin_trip--trip_admin_trip",
     {

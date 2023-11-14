@@ -22,7 +22,6 @@ export default function AddTrip({ stops, ...props }: AddTripProps) {
 
   const { register, handleSubmit, control } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data.stops);
     const response = await fetch("/api/trips/add", {
       method: "POST",
       body: JSON.stringify({
