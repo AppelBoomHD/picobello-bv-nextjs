@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "@tailwindcss/typography": "^0.5.8",
     "next": "^13",
     "next-drupal": "^1.5.0",
