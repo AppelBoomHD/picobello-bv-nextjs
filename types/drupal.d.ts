@@ -21,3 +21,11 @@ export interface DrupalStop extends JsonApiResourceWithPath {
   created: string;
   changed: string;
 }
+
+export interface DrupalOrder extends JsonApiResourceWithPath {
+  type: string;
+  id: string;
+  drupal_internal__id: number;
+  created: string;
+  changed: string;
+}
